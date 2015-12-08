@@ -1,0 +1,37 @@
+{
+  "name": "jasmine-expect-jsx",
+  "version": "1.0.0",
+  "description": "JSX assertions for Jasmine",
+  "main": "dist/jasmine-expect-jsx.js",
+  "scripts": {
+    "build": "browserify index.js -o dist/jasmine-expect-jsx.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smacker/jasmine-expect-jsx.git"
+  },
+  "keywords": [
+    "assert",
+    "assertion",
+    "jasmine",
+    "expect",
+    "jsx",
+    "react",
+    "test"
+  ],
+  "author": "Maxim Sukharev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smacker/jasmine-expect-jsx/issues"
+  },
+  "homepage": "https://github.com/smacker/jasmine-expect-jsx#readme",
+  "dependencies": {
+    "diff": "^2.2.1",
+    "react": "^0.14.3",
+    "react-element-to-jsx-string": "^2.1.3"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1"
+  }
+}
