@@ -1,6 +1,6 @@
 {
   "name": "jasmine-expect-jsx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSX assertions for Jasmine",
   "main": "dist/jasmine-expect-jsx.js",
   "scripts": {
