@@ -1,6 +1,7 @@
 # jasmine-expect-jsx
 
-Adds `toEqualJSX` method to jasmine assertions. Uses Algolia's [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string) under the hood.
+Adds `toEqualJSX` and `toIncludeJSX` methods to jasmine assertions.
+Uses Algolia's [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string) under the hood.
 
 ## Installation
 
@@ -44,4 +45,10 @@ expect(<TestComponent />).toEqualJSX(<TestComponent />);
 expect(<div />).not.toEqualJSX(<span />);
 expect(<TestComponent />).not.toEqualJSX(<span />);
 
+// includeJSX
+expect(<div><span>Hello World!</span></div>).toIncludeJSX(<span>Hello World!</span>);
+expect(<TestComponent />).toIncludeJSX(<SomeSubComponent />); // assuming <SomeSubComponent /> is rendered by TestComponent's render
+
+expect(<div><span>Hello World!</span></div>).not.toIncludeJSX(<span>Hello World!</span>);
+expect(<TestComponent />).not.toIncludeJSX(<SomeSubComponent />); // assuming <SomeSubComponent /> is not rendered by TestComponent's render
 ```
