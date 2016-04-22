@@ -1,4 +1,4 @@
-# jasmine-expect-jsx [![Build Status](https://api.travis-ci.org/smacker/jasmine-expect-jsx.svg)](https://travis-ci.org/smacker/jasmine-expect-jsx)
+# jasmine-expect-jsx [![npm](https://img.shields.io/npm/v/jasmine-expect-jsx.svg?maxAge=2592000)](https://www.npmjs.com/package/jasmine-expect-jsx) [![Build Status](https://api.travis-ci.org/smacker/jasmine-expect-jsx.svg)](https://travis-ci.org/smacker/jasmine-expect-jsx)
 
 Adds `toEqualJSX` and `toIncludeJSX` methods to jasmine assertions.
 Uses Algolia's [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string) under the hood.
