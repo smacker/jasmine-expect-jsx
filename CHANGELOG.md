@@ -1,4 +1,8 @@
-## 1.1.0
+## 1.1.2
+
+* es5 compatibility
+
+## 1.1.1
 
 * Rebuild dist for older browsers
 
