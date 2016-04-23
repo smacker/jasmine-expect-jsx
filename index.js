@@ -27,42 +27,38 @@ function getJSXDiffMessage(actualJSX, expectedJSX) {
   return message.join('\n');
 }
 
-function prepare(actual, expected) {
-  const actualJSX = reactElementToJSXString(actual);
-  const expectedJSX = reactElementToJSXString(expected);
-  return {
-    actualJSX,
-    expectedJSX,
-    actualJSXc: collapse(actualJSX),
-    expectedJSXc: collapse(expectedJSX)
-  };
+function compare(actual, expected, comparator, customEqualityTesters) {
+    var actualJSX = reactElementToJSXString(actual);
+    var expectedJSX = reactElementToJSXString(expected);
+
+    var result = {
+      pass: comparator(collapse(actualJSX), collapse(expectedJSX), customEqualityTesters)
+    };
+    if (!result.pass) {
+      result.message = getJSXDiffMessage(actualJSX, expectedJSX);
+    }
+    return result;
+}
+
+function not(fn) {
+  return function() {
+    return !fn.apply(null, arguments);
+  }
 }
 
 function toIncludeJSX(util, customEqualityTesters) {
 
   return {
     compare: function(actual, expected) {
-      const {actualJSX, expectedJSX, actualJSXc, expectedJSXc} = prepare(actual, expected);
+      var comparator = util.contains;
 
-      const result = {
-        pass: util.contains(actualJSXc, expectedJSXc, customEqualityTesters)
-      };
-      if (!result.pass) {
-        result.message = getJSXDiffMessage(actualJSX, expectedJSX);
-      }
-      return result;
+      return compare(actual, expected, comparator, customEqualityTesters);
     },
 
     negativeCompare: function(actual, expected) {
-      const {actualJSX, expectedJSX, actualJSXc, expectedJSXc} = prepare(actual, expected);
+      var comparator = not(util.contains);
 
-      const result = {
-        pass: ! util.contains(actualJSXc, expectedJSXc, customEqualityTesters)
-      };
-      if (!result.pass) {
-        result.message = getJSXDiffMessage(actualJSX, expectedJSX);
-      }
-      return result;
+      return compare(actual, expected, comparator, customEqualityTesters);
     }
   };
 }
@@ -70,28 +66,14 @@ function toIncludeJSX(util, customEqualityTesters) {
 function toEqualJSX(util, customEqualityTesters) {
   return {
     compare: function(actual, expected) {
-      const {actualJSX, expectedJSX, actualJSXc, expectedJSXc} = prepare(actual, expected);
+      var comparator = util.equals;
 
-      const result = {
-        pass: util.equals(actualJSXc, expectedJSXc, customEqualityTesters)
-      };
-      if (!result.pass) {
-        result.message = getJSXDiffMessage(actualJSX, expectedJSX);
-      }
-
-      return result;
+      return compare(actual, expected, comparator, customEqualityTesters);
     },
     negativeCompare: function(actual, expected) {
-      const {actualJSX, expectedJSX, actualJSXc, expectedJSXc} = prepare(actual, expected);
+      var comparator = not(util.equals);
 
-      const result = {
-        pass: ! util.equals(actualJSXc, expectedJSXc, customEqualityTesters)
-      };
-      if (!result.pass) {
-        result.message = getJSXDiffMessage(actualJSX, expectedJSX);
-      }
-
-      return result;
+      return compare(actual, expected, comparator, customEqualityTesters);
     }
   };
 }
