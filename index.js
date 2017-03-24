@@ -27,38 +27,29 @@ function getJSXDiffMessage(actualJSX, expectedJSX) {
   return message.join('\n');
 }
 
-function compare(actual, expected, comparator, customEqualityTesters) {
+function compare(actual, expected, comparator, passedMessage) {
     var actualJSX = reactElementToJSXString(actual);
     var expectedJSX = reactElementToJSXString(expected);
 
     var result = {
-      pass: comparator(collapse(actualJSX), collapse(expectedJSX), customEqualityTesters)
+      pass: comparator(collapse(actualJSX), collapse(expectedJSX)),
     };
     if (!result.pass) {
       result.message = getJSXDiffMessage(actualJSX, expectedJSX);
+    } else {
+      result.message = passedMessage;
     }
     return result;
 }
 
-function not(fn) {
-  return function() {
-    return !fn.apply(null, arguments);
-  }
-}
-
 function toIncludeJSX(util, customEqualityTesters) {
-
   return {
     compare: function(actual, expected) {
-      var comparator = util.contains;
+      var comparator = function(actual, expected) {
+        return util.contains(actual, expected, customEqualityTesters);
+      }
 
-      return compare(actual, expected, comparator, customEqualityTesters);
-    },
-
-    negativeCompare: function(actual, expected) {
-      var comparator = not(util.contains);
-
-      return compare(actual, expected, comparator, customEqualityTesters);
+      return compare(actual, expected, comparator, 'Actual JSX includes expected JSX');
     }
   };
 }
@@ -66,14 +57,11 @@ function toIncludeJSX(util, customEqualityTesters) {
 function toEqualJSX(util, customEqualityTesters) {
   return {
     compare: function(actual, expected) {
-      var comparator = util.equals;
+      var comparator = function(actual, expected) {
+        return util.equals(actual, expected, customEqualityTesters);
+      }
 
-      return compare(actual, expected, comparator, customEqualityTesters);
-    },
-    negativeCompare: function(actual, expected) {
-      var comparator = not(util.equals);
-
-      return compare(actual, expected, comparator, customEqualityTesters);
+      return compare(actual, expected, comparator, 'JSX strings are equal');
     }
   };
 }

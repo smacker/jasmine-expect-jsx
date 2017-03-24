@@ -1,10 +1,10 @@
 {
   "spec_dir": "spec",
   "spec_files": [
-    "*-test.js"
+    "*.test.js"
   ],
   "helpers": [
-    "../node_modules/jasmine-es6/lib/install.js",
+    "../node_modules/babel-core/register.js",
     "../index.js"
   ],
   "stopSpecOnExpectationFailure": false,

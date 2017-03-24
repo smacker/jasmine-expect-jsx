@@ -28,14 +28,14 @@ describe('jasmine-expect-jsx', () => {
       expected = <span />;
       expect(expected).not.toEqualJSX(actual);
     });
-    it('no message on equal', () => {
+    it('correct message on equal', () => {
       actual = <div/>;
       expected = <div/>;
 
       diff = toEqual(actual, expected);
 
       expect(diff.pass).toBeTruthy();
-      expect(diff.message).toBeUndefined();
+      expect(diff.message).toEqual('JSX strings are equal');
     });
 
     it('diff in one line', () => {
@@ -119,7 +119,7 @@ describe('jasmine-expect-jsx', () => {
       diff = toInclude(actual, expected);
 
       expect(diff.pass).toBeTruthy();
-      expect(diff.message).toBeUndefined();
+      expect(diff.message).toEqual('Actual JSX includes expected JSX');
     });
     it('should generate a diff of lines', () => {
       actual = (
