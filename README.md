@@ -29,6 +29,27 @@ Also you can just add `'node_modules/jasmine-expect-jsx/dist/jasmine-expect-jsx.
 require('jasmine-expect-jsx');
 ```
 
+### Jest
+
+1. Add `setupTestFrameworkScriptFile` in `package.json`
+
+```json
+{
+    ...
+    "jest": {
+        "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js"
+    }
+    ...
+}
+```
+
+2. Import `jasmine-expect-jsx` in `setupTestFrameworkScriptFile` file
+
+```javascript
+// jestSetup.js
+require('jasmine-expect-jsx');
+```
+
 ## Usage
 
 The following tests are all passing:
