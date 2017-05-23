@@ -1,3 +1,7 @@
+## 1.1.4
+
+* support jest 20
+
 ## 1.1.2
 
 * es5 compatibility

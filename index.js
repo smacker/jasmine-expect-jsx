@@ -32,7 +32,7 @@ function compare(actual, expected, comparator, passedMessage) {
     var expectedJSX = reactElementToJSXString(expected);
 
     var result = {
-      pass: comparator(collapse(actualJSX), collapse(expectedJSX)),
+      pass: comparator(collapse(actualJSX), collapse(expectedJSX))
     };
     if (!result.pass) {
       result.message = getJSXDiffMessage(actualJSX, expectedJSX);
