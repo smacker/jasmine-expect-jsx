@@ -42,11 +42,11 @@ function compare(actual, expected, comparator, passedMessage) {
     return result;
 }
 
-function toIncludeJSX(util, customEqualityTesters) {
+function toIncludeJSX() {
   return {
     compare: function(actual, expected) {
       var comparator = function(actual, expected) {
-        return util.contains(actual, expected, customEqualityTesters);
+        return !!actual && actual.indexOf(expected) >= 0;
       }
 
       return compare(actual, expected, comparator, 'Actual JSX includes expected JSX');
@@ -54,11 +54,11 @@ function toIncludeJSX(util, customEqualityTesters) {
   };
 }
 
-function toEqualJSX(util, customEqualityTesters) {
+function toEqualJSX() {
   return {
     compare: function(actual, expected) {
       var comparator = function(actual, expected) {
-        return util.equals(actual, expected, customEqualityTesters);
+        return actual == expected;
       }
 
       return compare(actual, expected, comparator, 'JSX strings are equal');
