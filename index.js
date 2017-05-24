@@ -1,4 +1,4 @@
-var reactElementToJSXString = require('react-element-to-jsx-string');
+var reactElementToJSXString = require('react-element-to-jsx-string').default;
 var jsdiff = require('diff');
 var collapse = require('collapse-white-space');
 
@@ -74,8 +74,8 @@ beforeEach(function() {
 });
 
 if (module && module.exports) {
-    module.exports = {
-        toEqualJSX: toEqualJSX,
-        toIncludeJSX: toIncludeJSX
-    };
+  module.exports = {
+    toEqualJSX: toEqualJSX,
+    toIncludeJSX: toIncludeJSX
+  };
 }
