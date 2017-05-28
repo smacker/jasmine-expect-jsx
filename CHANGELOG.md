@@ -1,3 +1,11 @@
+## 1.1.6
+
+* transform dist output to es5
+
+## 1.1.5
+
+* upgrade react-element-to-jsx-string to 7.0.0 to avoid react warnings about ReactTestUtils
+
 ## 1.1.4
 
 * support jest 20
