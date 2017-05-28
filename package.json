@@ -4,7 +4,7 @@
   "description": "JSX assertions for Jasmine",
   "main": "dist/jasmine-expect-jsx.js",
   "scripts": {
-    "build": "browserify index.js -o dist/jasmine-expect-jsx.js",
+    "build": "browserify index.js | babel --compact -o dist/jasmine-expect-jsx.js",
     "test": "jasmine && jest",
     "test.watch": "jasmine && jest --watch",
     "lint": "eslint .",
@@ -39,6 +39,7 @@
     "setupTestFrameworkScriptFile": "<rootDir>/spec/support/jestSetup.js"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
     "babel-jest": "^19.0.0",
     "babel-preset-es2015": "^6.24.0",
