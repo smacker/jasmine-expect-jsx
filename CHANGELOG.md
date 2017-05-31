@@ -1,3 +1,7 @@
+## 1.1.7
+
+* transform dist output to es5
+
 ## 1.1.6
 
 * transform dist output to es5

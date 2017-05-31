@@ -1,10 +1,10 @@
 {
   "name": "jasmine-expect-jsx",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "JSX assertions for Jasmine",
   "main": "dist/jasmine-expect-jsx.js",
   "scripts": {
-    "build": "browserify index.js | babel --compact -o dist/jasmine-expect-jsx.js",
+    "build": "browserify index.js | babel --presets=es2015,react --compact -o dist/jasmine-expect-jsx.js",
     "test": "jasmine && jest",
     "test.watch": "jasmine && jest --watch",
     "lint": "eslint .",
