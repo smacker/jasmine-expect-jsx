@@ -1,3 +1,7 @@
+## 2.0.0
+
+* expose index.js as the main file, allowing it to be imported.
+
 ## 1.1.7
 
 * transform dist output to es5
