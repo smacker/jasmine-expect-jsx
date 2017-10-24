@@ -1,3 +1,9 @@
+## 3.0.0
+
+* bump react-element-to-jsx-string to 13.0.0
+* bump diff to 3.4.0
+* remove react from dependencies
+
 ## 2.0.0
 
 * expose index.js as the main file, allowing it to be imported.
