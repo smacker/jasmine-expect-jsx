@@ -4,7 +4,7 @@
   "description": "JSX assertions for Jasmine",
   "main": "index.js",
   "scripts": {
-    "build": "browserify index.js | babel --presets=es2015,react --compact -o dist/jasmine-expect-jsx.js",
+    "build": "browserify index.js | babel --presets=env,react --compact -o dist/jasmine-expect-jsx.js",
     "test": "jasmine && jest",
     "test.watch": "jasmine && jest --watch",
     "lint": "eslint .",
@@ -31,9 +31,8 @@
   "homepage": "https://github.com/smacker/jasmine-expect-jsx#readme",
   "dependencies": {
     "collapse-white-space": "^1.0.0",
-    "diff": "^2.2.1",
-    "react": "^0.14.3 || ^15.0.0",
-    "react-element-to-jsx-string": "^7.0.0"
+    "diff": "^3.4.0",
+    "react-element-to-jsx-string": "^13.0.0"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/spec/support/jestSetup.js"
@@ -41,14 +40,16 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
-    "babel-jest": "^19.0.0",
+    "babel-jest": "^21.0.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
-    "browserify": "^12.0.1",
+    "browserify": "^14.0.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.11.3",
     "jasmine": "^2.4.1",
-    "jest": "^20.0.0",
-    "react-dom": "^15.4.2"
+    "jest": "^21.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
