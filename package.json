@@ -1,6 +1,6 @@
 {
   "name": "jasmine-expect-jsx",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "JSX assertions for Jasmine",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
   "dependencies": {
     "collapse-white-space": "^1.0.0",
     "diff": "^3.4.0",
-    "react-element-to-jsx-string": "^13.0.0"
+    "react-element-to-jsx-string": "^13.2.0"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/spec/support/jestSetup.js"
