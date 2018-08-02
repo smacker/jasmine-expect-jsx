@@ -1,4 +1,4 @@
-var reactElementToJSXString = require('react-element-to-jsx-string').default;
+var reactElementToJSXString = require('react-element-to-jsx-string');
 var jsdiff = require('diff');
 var collapse = require('collapse-white-space');
 
