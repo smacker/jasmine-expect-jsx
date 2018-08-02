@@ -35,6 +35,7 @@
     "react-element-to-jsx-string": "^13.2.0"
   },
   "jest": {
+    "testURL": "http://localhost",
     "setupTestFrameworkScriptFile": "<rootDir>/spec/support/jestSetup.js"
   },
   "devDependencies": {
