@@ -1,3 +1,7 @@
+## 3.2.0
+
+* bump react-element-to-jsx-string to 14.0.1
+
 ## 3.1.0
 
 * bump react-element-to-jsx-string to 13.2.0
