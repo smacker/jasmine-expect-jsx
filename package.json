@@ -31,7 +31,7 @@
   "homepage": "https://github.com/smacker/jasmine-expect-jsx#readme",
   "dependencies": {
     "collapse-white-space": "^1.0.0",
-    "diff": "^3.4.0",
+    "diff": "^4.0.1",
     "react-element-to-jsx-string": "^14.0.2"
   },
   "jest": {
